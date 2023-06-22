@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>JavaScript Quiz</title>
     <link rel="stylesheet" href="./Assets/reset.css"/>
-    <link rel="stylesheet" href="./Assets/style.css"/>
+    <link rel="stylesheet" href="./Assets/mainStyle.css"/>
 </head>
 
 <body>
-<nav= id="nav-bar">
+<nav id="nav-bar">
     <a href="./highScore.html">High Scores</a>
-    <p>Time: </p>
+    <p id="timer">Time: <span id="timeLeft"></span></p>
 </nav>
 <div id="home-page">
     <header>Javascript Quiz</header>
-    <p>Are you up for the challenge? To begin click the start button below and answer as many questions as possible until the time runs out or all questions are answered. If you get a question incorrect 10 seconds will be subtracted from the timer. May the odds be ever in your favor! </p>
+    <p class="content">Are you up for the challenge? To begin click the start button below and answer as many questions as possible until the time runs out or all questions are answered. If you get a question incorrect 10 seconds will be subtracted from the timer. <br> May the odds be ever in your favor! </p>
+    <br>
     <button id="startGame-Btn">Start Game</button>
 </div>
+
 <div id="quiz-page">
     
 </div>
+<script src="./mainScript.js"></script>
 </body>
 </html>
