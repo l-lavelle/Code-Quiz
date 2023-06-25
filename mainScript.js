@@ -4,12 +4,13 @@ function playQuiz(){
     hideStartBtn();
     setTime();
     displayQuestions();
-    answerQuestions();
-    
+    answerQuestions();  
 }
 
+// Starting quiz, changing displays
 var mainText = document.getElementById("home-page")
 var quizText = document.getElementById("quiz-page")
+var endText = document.getElementById("quiz-complete")
 function hideStartBtn(){
     mainText.style.display="none"
     quizText.style.display="flex"
@@ -17,20 +18,20 @@ function hideStartBtn(){
 
 // Timer countdown
 var timeEl=document.getElementById("timeLeft");
-var secondsLeft= 80;
-
+var secondsLeft= 5;
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = "Time: " + secondsLeft;
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
             clearInterval(timerInterval);
-            // sendMessage();
+            timeEl.textContent = "Time: 0";
+           endGame();
           }
-        }, 1000);
+    }, 1000);
       }
 
-
+// Initial Question
 var i=0
 function displayQuestions(){
         document.getElementById("quiz-questions").textContent=questions[i].q;
@@ -40,41 +41,53 @@ function displayQuestions(){
         document.getElementById("a4").textContent=questions[i].a4
     }
 
+// Checking User Answer
 score=0
 function answerQuestions(){
     document.getElementById("answers").addEventListener("click",checkAnswer) 
 }
-
-// seperate in check answer and then next question
 function checkAnswer(event){
-    // console.log(event.target);
     var userAnswer= event.target.childNodes[0].data;
-    console.log( userAnswer);
-    // console.log( userAnswer.NodeValue);
-    // console.log( userAnswer.NodeType);
-    // console.log( userAnswer.NodeName);
-  
-    // console.log("User Answer:", userAnswer.value);
-    // console.log("Correct Answer:", questions[i].correct);
     if (userAnswer.trim() === questions[i].correct.trim()){
-
-        console.log(userAnswer);
-        console.log(questions[i])
-        document.getElementById("answerResult").textContent="Correct";
+        var correct=document.getElementById("answerResult");
+        correct.textContent="Correct!";
+        correct.style.color="green";
         score=score+10;
-        console.log(score)
+        console.log(score);
     }
     else{
         console.log(typeof questions[i].correct);
-        document.getElementById("answerResult").textContent="Incorrect";
+        var incorrect=document.getElementById("answerResult");
+        incorrect.textContent="Incorrect";
+        incorrect.style.color="red";
         secondsLeft=secondsLeft-10;
     }
-    // i++;
-    // displayQuestions();
     nextQuestion();
 }
+
+// Iterating through questions
 function nextQuestion(){
-    i++;
-    displayQuestions();
-  
+    if (i===2){
+        endGame();
+    }else{
+        localStorage.setItem("score", score);
+        i++;
+        displayQuestions();
+
+    }
+}
+
+// Saving score and initials
+function endGame(){
+    quizText.style.display="none";
+    endText.style.display="flex";
+    document.getElementById("userScore").textContent=score
+
+    document.getElementById("saveScore").addEventListener("click", function saveInfo(event){
+        event.preventDefault();
+        var intials = document.querySelector("#intials").value;
+        localStorage.setItem("initials", intials)
+        console.log(score)
+    })
+    
 }
