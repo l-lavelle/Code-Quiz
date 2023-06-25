@@ -1,0 +1,20 @@
+var questions=[
+    {q: "What day is it?",
+    a1:"Monday",
+    a2:"Tuesday",
+    a3: "friday",
+    a4:"Saturday",
+    correct:"Saturday"},
+    {q: "Hows it going?",
+    a1:"good",
+    a2:"fine",
+    a3: "great",
+    a4:"wonderful",
+    correct:"wonderful"},
+    {q: "What is Javascript?",
+    a1:"a",
+    a2:"b",
+    a3: "c",
+    a4:"d",
+    correct:"d"}
+]

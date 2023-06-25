@@ -11,18 +11,27 @@
 <body>
 <nav id="nav-bar">
     <a href="./highScore.html">High Scores</a>
-    <p id="timer">Time: <span id="timeLeft"></span></p>
+    <p id="timer"><span id="timeLeft"></span></p>
 </nav>
 <div id="home-page">
     <header>Javascript Quiz</header>
-    <p class="content">Are you up for the challenge? To begin click the start button below and answer as many questions as possible until the time runs out or all questions are answered. If you get a question incorrect 10 seconds will be subtracted from the timer. <br> May the odds be ever in your favor! </p>
+    <p class="content">Are you up for the challenge?<br> To begin click the start button below and answer as many questions as possible until the time runs out or all questions are answered. If you get a question incorrect 10 seconds will be subtracted from the timer. <br> May the odds be ever in your favor! </p>
     <br>
     <button id="startGame-Btn">Start Game</button>
 </div>
 
 <div id="quiz-page">
-    
+    <p>Question: <span id="quiz-questions"></span></p>
+    <p>Answer: </p>
+    <ul id="answers">
+        <button id="a1"></button>
+        <button id="a2"></button>
+        <button id="a3"></button>
+        <button id="a4"></button>
+        <p><span id="answerResult"></span></p>
+    </ul>
 </div>
 <script src="./mainScript.js"></script>
+<script src="questions.js"></script>
 </body>
 </html>
