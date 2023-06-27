@@ -5,7 +5,7 @@
     font-size: 1.2em;
     background-color: peachpuff;
 }
-nav a{
+nav >*{
     margin: 1% 5%;
     text-decoration: none;
     color: black;
@@ -38,17 +38,38 @@ header{
 #quiz-page{
     display:none;
     flex-direction: column;
-    align-items: center;
-    border: 5px solid blue;
+    /* align-items: center; */
+    border: 10px solid navy;
+    background-color: peachpuff;
+    margin: 5%;
+}
+#quiz-page>p{
+    font-size: 1.5em;
+    margin:2%;
+}
+#quiz-questions{
+    font-size: .9em;
 }
 #answers{
-    border: 2px solid red;
+    align-items: center;
+    margin: 2% 0;
     display:inline-flex; 
     flex-direction: column;
 }
+#answers>*{
+    margin: 3% 0;
+    font-size: 1.3em;
+}
+
 
 /* Save scores Attributes*/
 #quiz-complete{
     display:none;
     flex-direction: column;
+    align-items: center;
+    margin: 2% 0;
+}
+#quiz-complete>*{
+    font-size: 1.5em;
+    margin: 1% 0;
 }
