@@ -2,7 +2,7 @@
 
 ## Description
 
-In this project a website was created with an interactive coding quiz to test Javascript knowledge. Coding assessments are a typical part of the interview process as a full-stack web developer. Usually they are combination of multiple-choice questions and interactive coding challenges. 
+In this project a website was created with an interactive coding quiz to test Javascript knowledge. Coding assessments are a typical part of the interview process as a full-stack web developer. Usually they are combination of multiple-choice questions and interactive coding challenges.  
 
 The quiz was developed using dynamically updated HTML and CSS powered by Javascript code with following criteria:
 

@@ -1,5 +1,6 @@
 document.getElementById("startGame-Btn").addEventListener("click", playQuiz)
 var i=0
+
 function playQuiz(){
     hideStartBtn();
     setTime();
@@ -17,7 +18,6 @@ function hideStartBtn(){
 }
 
 // Timer countdown
-// Timer still running if finsih quiz early
 var timeEl=document.getElementById("timeLeft");
 var timerInterval 
 var secondsLeft= 90;
@@ -30,12 +30,10 @@ function setTime() {
             timeEl.textContent = "Time: 0";
            endGame();
           }
-        
     }, 1000);
       }
 
 // Initial Question
-
 function displayQuestions(){
         document.getElementById("quiz-questions").textContent=questions[i].q;
         document.getElementById("a1").textContent=questions[i].a1
@@ -56,7 +54,7 @@ function checkAnswer(event){
         correct.textContent="Correct!";
         correct.style.color="green";
         score=score+10;
-        // console.log(score);
+        i++;
         setTimeout(()=>{correct.textContent="";nextQuestion();},2000)
     }
     else{
@@ -64,6 +62,7 @@ function checkAnswer(event){
         incorrect.textContent="Incorrect";
         incorrect.style.color="red";
         secondsLeft=secondsLeft-10;
+        i++;
         setTimeout(()=>{incorrect.textContent="";nextQuestion();},2000)
     }
     
@@ -74,7 +73,6 @@ function nextQuestion(){
     if (i===10){
         endGame();
     }else{
-        i++;
         displayQuestions();
     }
 }
@@ -86,20 +84,21 @@ function endGame(){
     
     quizText.style.display="none";
     endText.style.display="flex";
-    document.getElementById("userScore").textContent=score
 
+    document.getElementById("userScore").textContent=score
     document.getElementById("saveScore").addEventListener("click", function saveInfo(event){
-        localStorage.setItem("score", score);
+        
         event.preventDefault();
         var initials = document.querySelector("#initials").value;
-        localStorage.setItem("initials", initials);
-        // trial()
+        // localStorage.setItem("initials", initials);
+        // localStorage.setItem("score", score);
+        
         var userInput={
             "score":score,
             "initials":initials
         }
         
-        // localStorage.setItem("trial", JSON.stringify(userInput));
+        localStorage.setItem("trial", JSON.stringify(userInput));
 
         setTimeout(()=>{mainText.style.display="flex";
         quizText.style.display="none";
