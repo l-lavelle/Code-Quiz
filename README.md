@@ -29,4 +29,4 @@ On the website click on the Start Game button to begin the quiz. Answer the ques
 
 N/A
 
-## [Website Link](https://l-lavelle.github.io/Professional-Portfolio/)
+## [Website Link](https://l-lavelle.github.io/Code-Quiz/)
