@@ -25,7 +25,7 @@ function setTime() {
      window.timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = "Time: " + secondsLeft;
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
             clearInterval(timerInterval);
             timeEl.textContent = "Time: 0";
            endGame();
@@ -71,7 +71,7 @@ function checkAnswer(event){
 
 // Iterating through questions
 function nextQuestion(){
-    if (i===2){
+    if (i===10){
         endGame();
     }else{
         i++;
